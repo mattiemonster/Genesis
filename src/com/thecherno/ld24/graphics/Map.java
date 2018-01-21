@@ -14,7 +14,7 @@ import com.thecherno.ld24.level.Level;
 public class Map extends Canvas {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	int width = 128;
 	int height = 128;
 	int scale = 2;
@@ -31,8 +31,10 @@ public class Map extends Canvas {
 			int x = e.x >> 4;
 			int y = e.y >> 4;
 			if (e instanceof Female) {
-				if (!(((Female) e).canSpawnChild)) pixels[x + y * width] = 0x1D6696;
-				if ((((Female) e).canSpawnChild)) pixels[x + y * width] = 0xD43977;
+				if (!(((Female) e).canSpawnChild))
+					pixels[x + y * width] = 0x1D6696;
+				if ((((Female) e).canSpawnChild))
+					pixels[x + y * width] = 0xD43977;
 
 			} else if (e instanceof Player) {
 				pixels[x + y * width] = 0xffffff;
@@ -42,7 +44,8 @@ public class Map extends Canvas {
 
 		}
 
-		g.drawImage(map, Game.WIDTH * Game.SCALE - width * scale, Game.HEIGHT * Game.SCALE - height * scale, width * scale, height * scale, null);
+		g.drawImage(map, Game.WIDTH * Game.SCALE - width * scale, Game.HEIGHT * Game.SCALE - height * scale,
+				width * scale, height * scale, null);
 	}
 
 }

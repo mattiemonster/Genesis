@@ -21,8 +21,10 @@ public class LightTile {
 
 	public void render(int x, int y, Screen screen, Level level) {
 		int tb = Level.brightness;
-		if (tb < -240) tb = -240;
-		if (tb > 0) tb = 0;
+		if (tb < -240)
+			tb = -240;
+		if (tb > 0)
+			tb = 0;
 		for (int yy = -3; yy <= 3; yy++) {
 			for (int xx = -3; xx <= 3; xx++) {
 				for (int i = 0; i < 4; i++) {
@@ -34,7 +36,8 @@ public class LightTile {
 				int yTile = y * 16 + yy * 16;
 				double r = Math.abs((Math.pow(xx * Math.PI, 2)) + Math.abs(Math.pow(yy * Math.PI, 2)));
 				double intensity = r * tb * 0.00012;
-				if (r < 100) screen.renderLight(xTile, yTile, tile, 62, 64, 65, intensity);
+				if (r < 100)
+					screen.renderLight(xTile, yTile, tile, 62, 64, 65, intensity);
 			}
 		}
 

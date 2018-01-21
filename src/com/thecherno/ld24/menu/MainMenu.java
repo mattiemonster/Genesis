@@ -17,7 +17,8 @@ public class MainMenu extends Menu {
 	int selected = 0;
 
 	public void update() {
-		if (timer > 0) timer--;
+		if (timer > 0)
+			timer--;
 		if (input.down && timer == 0) {
 			selected++;
 			if (selected == 4)
@@ -25,7 +26,7 @@ public class MainMenu extends Menu {
 			Sound.menucycle.play(false);
 			timer = 10;
 		}
-		
+
 		if (input.up && timer == 0) {
 			selected--;
 			if (selected == -1)
@@ -34,15 +35,17 @@ public class MainMenu extends Menu {
 			timer = 10;
 		}
 
-		if (selected < 0) selected = 0;
-		if (selected > 3) selected = 3;
+		if (selected < 0)
+			selected = 0;
+		if (selected > 3)
+			selected = 3;
 
 		if (selected == 0) {
 			options[selected] = "> " + "Play" + " <";
 		} else {
 			options[0] = "Play";
 		}
-		
+
 		if (selected == 1) {
 			options[selected] = "> " + "Help" + " <";
 
@@ -53,7 +56,7 @@ public class MainMenu extends Menu {
 		} else {
 			options[1] = "Help";
 		}
-		
+
 		if (selected == 2) {
 			options[selected] = "> " + "About" + " <";
 			if (input.use) {
@@ -63,7 +66,7 @@ public class MainMenu extends Menu {
 		} else {
 			options[2] = "About ";
 		}
-		
+
 		if (selected == 3) {
 			options[selected] = "> " + "Quit" + " <";
 			if (input.use) {
@@ -81,7 +84,7 @@ public class MainMenu extends Menu {
 			Sound.start.play(false);
 			Level.play = true;
 			Game.menu = null;
-			PlayMenu.biome = 2; //random.nextInt(3);
+			PlayMenu.biome = 2; // random.nextInt(3);
 		}
 	}
 
@@ -91,8 +94,7 @@ public class MainMenu extends Menu {
 		screen.renderText("A game by Yan Chernikov. Edited by Mattie.", 75 + 2, 188 + 2, 30, 1, 0);
 		screen.renderText("A game by Yan Chernikov. Edited by Mattie.", 75, 188, 30, 1, 0xffffff);
 		for (int i = 0; i < options.length; i++) {
-			if (i != 3 && i != 0)
-			{
+			if (i != 3 && i != 0) {
 				screen.renderText(options[i], 350 + 3, 300 + i * 60 + 3, 50, 1, 0);
 				screen.renderText(options[i], 350, 300 + i * 60, 50, 1, 0xffffff);
 			} else if (i == 3) {

@@ -21,8 +21,10 @@ public class WaterTile extends Tile {
 		if (anim % 48 == 0) {
 			s *= -1;
 		}
-		if (s == -1) sprite = Sprite.water;
-		if (s == 1) sprite = Sprite.water2;
+		if (s == -1)
+			sprite = Sprite.water;
+		if (s == 1)
+			sprite = Sprite.water2;
 	}
 
 	public void render(int x, int y, Screen screen) {

@@ -21,7 +21,8 @@ public class GameOverMenu extends Menu {
 	int selected = 0;
 
 	public void update() {
-		if (timer > 0) timer--;
+		if (timer > 0)
+			timer--;
 		if (input.down && selected < options.length && timer == 0) {
 			selected++;
 			Sound.menucycle.play(false);
@@ -32,7 +33,8 @@ public class GameOverMenu extends Menu {
 			Sound.menucycle.play(false);
 			timer = 10;
 		}
-		if (selected < 0) selected = 0;
+		if (selected < 0)
+			selected = 0;
 		if (selected > 1) {
 			selected = 1;
 		}
@@ -65,17 +67,22 @@ public class GameOverMenu extends Menu {
 
 	public void render(Screen screen) {
 		int col = 0xffffff;
-		if (Game.level instanceof SnowLevel) col = 0;
-		if (col != 0) screen.renderText("Game Over!", 240 - 20, 100 + 3, 75, 1, 0);
+		if (Game.level instanceof SnowLevel)
+			col = 0;
+		if (col != 0)
+			screen.renderText("Game Over!", 240 - 20, 100 + 3, 75, 1, 0);
 		screen.renderText("Game Over!", 240 - 20, 100, 75, 1, col);
 		String text = "Your population: " + (long) Population.population;
 		int length = text.length();
-		if (col != 0) screen.renderText("Tweet your score @TheCherno!", 252 + 3, 140 + 3, 25, 1, 0);
+		if (col != 0)
+			screen.renderText("Tweet your score @TheCherno!", 252 + 3, 140 + 3, 25, 1, 0);
 		screen.renderText("Tweet your score @TheCherno!", 252, 140, 25, 1, col);
-		if (col != 0) screen.renderText(text, 450 - length * 12 + 3, 250 + 3, 35, 1, 0);
+		if (col != 0)
+			screen.renderText(text, 450 - length * 12 + 3, 250 + 3, 35, 1, 0);
 		screen.renderText(text, 450 - length * 12, 250, 35, 1, col);
 		for (int i = 0; i < options.length; i++) {
-			if (col != 0) screen.renderText(options[i], 300 + 3, 350 + i * 60 + 3, 50, 1, 0);
+			if (col != 0)
+				screen.renderText(options[i], 300 + 3, 350 + i * 60 + 3, 50, 1, 0);
 			screen.renderText(options[i], 300, 350 + i * 60, 50, 1, col);
 		}
 	}

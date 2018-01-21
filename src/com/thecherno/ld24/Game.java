@@ -74,7 +74,8 @@ public class Game extends Canvas implements Runnable {
 	}
 
 	public synchronized void start() {
-		if (running) return;
+		if (running)
+			return;
 		running = true;
 		thread = new Thread(this, "GameThread");
 		thread.start();
@@ -82,7 +83,8 @@ public class Game extends Canvas implements Runnable {
 
 	public synchronized void stop() {
 		Sound.stopAll();
-		if (!running) return;
+		if (!running)
+			return;
 		running = false;
 		try {
 			thread.join();
@@ -105,7 +107,8 @@ public class Game extends Canvas implements Runnable {
 			lastTime = now;
 
 			if (delta >= 1) {
-				if (!paused) update();
+				if (!paused)
+					update();
 				updates++;
 				delta--;
 			}
@@ -116,7 +119,7 @@ public class Game extends Canvas implements Runnable {
 			while (System.currentTimeMillis() - lastTimer > 1000) {
 				lastTimer += 1000;
 				System.out.println(updates + " ups, " + frames + " fps");
-				// frame.setTitle(TITLE + "  |  " + updates + " ups, " + frames + " fps");
+				// frame.setTitle(TITLE + " | " + updates + " ups, " + frames + " fps");
 				level.updateTimer();
 				frames = 0;
 				updates = 0;
@@ -126,10 +129,13 @@ public class Game extends Canvas implements Runnable {
 
 	public void update() {
 		time++;
-		if (time > 65536) time = 0;
+		if (time > 65536)
+			time = 0;
 		input.update();
-		if (menu != null) menu.update();
-		if (pop != null) pop.update();
+		if (menu != null)
+			menu.update();
+		if (pop != null)
+			pop.update();
 		level.update();
 
 		if (PlayMenu.biome == 2) {
@@ -189,13 +195,17 @@ public class Game extends Canvas implements Runnable {
 		}
 
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
-		if (menu != null) menu.render(screen);
-		if (pop != null) pop.render(screen);
+		if (menu != null)
+			menu.render(screen);
+		if (pop != null)
+			pop.render(screen);
 		if (!input.focus) {
 			if (time % 50 > 18) {
 				int col = 0xffffff;
-				if (level instanceof SnowLevel) col = 0;
-				if (!((level instanceof SnowLevel))) screen.renderText("Click to Focus!", 120 + 4, 280 + 4, 80, 1, 0);
+				if (level instanceof SnowLevel)
+					col = 0;
+				if (!((level instanceof SnowLevel)))
+					screen.renderText("Click to Focus!", 120 + 4, 280 + 4, 80, 1, 0);
 				screen.renderText("Click to Focus!", 120, 280, 80, 1, col);
 			}
 		}

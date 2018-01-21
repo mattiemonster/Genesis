@@ -18,8 +18,9 @@ public class QuitMenu extends Menu {
 	int selected = 0;
 
 	public void update() {
-		if (timer > 0) timer--;
-		
+		if (timer > 0)
+			timer--;
+
 		if (input.down && timer == 0) {
 			selected++;
 			if (selected == 2)
@@ -27,7 +28,7 @@ public class QuitMenu extends Menu {
 			Sound.menucycle.play(false);
 			timer = 10;
 		}
-		
+
 		if (input.up && timer == 0) {
 			selected--;
 			if (selected == -1)
@@ -35,12 +36,13 @@ public class QuitMenu extends Menu {
 			Sound.menucycle.play(false);
 			timer = 10;
 		}
-		
-		if (selected < 0) selected = 0;
+
+		if (selected < 0)
+			selected = 0;
 		if (selected > 1) {
 			selected = 1;
 		}
-		
+
 		if (selected == 0) {
 			options[selected] = "> " + "Quit" + " <";
 			if (input.use && timer == 0) {
@@ -50,7 +52,7 @@ public class QuitMenu extends Menu {
 		} else {
 			options[0] = "Quit";
 		}
-		
+
 		if (selected == 1) {
 			options[selected] = "> " + "Main Menu" + " <";
 			if (input.use && timer == 0) {
@@ -70,8 +72,7 @@ public class QuitMenu extends Menu {
 		screen.renderText("Are you sure you want to quit?", 240 - 20, 100 + 3, 30, 1, 0);
 		screen.renderText("Are you sure you want to quit?", 240 - 20, 100, 30, 1, col);
 		for (int i = 0; i < options.length; i++) {
-			if (i == 1)
-			{
+			if (i == 1) {
 				screen.renderText(options[i], 300 + 3, 350 + i * 60 + 3, 50, 1, 0);
 				screen.renderText(options[i], 300, 350 + i * 60, 50, 1, col);
 			} else {

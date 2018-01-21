@@ -16,7 +16,8 @@ public class PlayMenu extends Menu {
 	public static int biome = -1;
 
 	public void update() {
-		if (timer > 0) timer--;
+		if (timer > 0)
+			timer--;
 
 		if (input.down && selected < options.length - 1 && timer == 0) {
 			selected++;
@@ -27,8 +28,10 @@ public class PlayMenu extends Menu {
 			timer = 10;
 		}
 
-		if (selected < 0) selected = 0;
-		if (selected > options.length - 1) selected = options.length - 1;
+		if (selected < 0)
+			selected = 0;
+		if (selected > options.length - 1)
+			selected = options.length - 1;
 
 		if (selected == 0) {
 			options[selected] = "> " + "Forest" + " <";
@@ -71,8 +74,10 @@ public class PlayMenu extends Menu {
 			options[4] = "Random";
 		}
 
-		if (input.back) Game.menu = new MainMenu(input);
-		if (input.use && timer == 0) Game.menu = null;
+		if (input.back)
+			Game.menu = new MainMenu(input);
+		if (input.use && timer == 0)
+			Game.menu = null;
 	}
 
 	public void render(Screen screen) {

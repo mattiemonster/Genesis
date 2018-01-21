@@ -170,35 +170,57 @@ public class Level {
 	}
 
 	public Tile getTile(int x, int y) {
-		if ((x < 0 || x >= width || y < 0 || y >= height) && this instanceof SnowLevel) return Tile.ice;
-		if (x < 0 || x >= width || y < 0 || y >= height) return Tile.voidTile;
-		if (tiles[x + y * width] == 0xffffffff && this instanceof SnowLevel) return Tile.snow;
-		if ((tiles[x + y * width] == 0xffffffff || tiles[x + y * width] == 0xffFFFF00) && grass[x + y * width] == 0 && !(this instanceof SnowLevel)) return Tile.grass;
-		if (tiles[x + y * width] == 0xff156B20 && this instanceof SnowLevel) return Tile.snow;
-		if (tiles[x + y * width] == 0xffFFFF00 && this instanceof SnowLevel) return Tile.snow;
-		if (tiles[x + y * width] == 0xff44C4FF && this instanceof SnowLevel) return Tile.snowrock;
-		if (tiles[x + y * width] == 0xffffffff || tiles[x + y * width] == 0xff156B20 || tiles[x + y * width] == 0xffFFFF00) return Tile.grassGround;
-		if (tiles[x + y * width] == 0xff44C4FF) return Tile.rock;
-		if (tiles[x + y * width] == 0xff3A5EFF) return Tile.water;
-		if (tiles[x + y * width] == 0xffB5C2FF) return Tile.ice;
-		if (tiles[x + y * width] == 0xff00FF04) return Tile.flower;
-		if (tiles[x + y * width] == 0xff156B20) return Tile.tree;
+		if ((x < 0 || x >= width || y < 0 || y >= height) && this instanceof SnowLevel)
+			return Tile.ice;
+		if (x < 0 || x >= width || y < 0 || y >= height)
+			return Tile.voidTile;
+		if (tiles[x + y * width] == 0xffffffff && this instanceof SnowLevel)
+			return Tile.snow;
+		if ((tiles[x + y * width] == 0xffffffff || tiles[x + y * width] == 0xffFFFF00) && grass[x + y * width] == 0
+				&& !(this instanceof SnowLevel))
+			return Tile.grass;
+		if (tiles[x + y * width] == 0xff156B20 && this instanceof SnowLevel)
+			return Tile.snow;
+		if (tiles[x + y * width] == 0xffFFFF00 && this instanceof SnowLevel)
+			return Tile.snow;
+		if (tiles[x + y * width] == 0xff44C4FF && this instanceof SnowLevel)
+			return Tile.snowrock;
+		if (tiles[x + y * width] == 0xffffffff || tiles[x + y * width] == 0xff156B20
+				|| tiles[x + y * width] == 0xffFFFF00)
+			return Tile.grassGround;
+		if (tiles[x + y * width] == 0xff44C4FF)
+			return Tile.rock;
+		if (tiles[x + y * width] == 0xff3A5EFF)
+			return Tile.water;
+		if (tiles[x + y * width] == 0xffB5C2FF)
+			return Tile.ice;
+		if (tiles[x + y * width] == 0xff00FF04)
+			return Tile.flower;
+		if (tiles[x + y * width] == 0xff156B20)
+			return Tile.tree;
 		return Tile.voidTile;
 	}
 
 	public Tile getTile2(int x, int y) {
-		if ((x < 0 || x >= width || y < 0 || y >= height) && this instanceof ForestLevel) return Tile.tree;
-		if (x < 0 || x >= width || y < 0 || y >= height) return Tile.voidTile;
-		if (tiles[x + y * width] == 0xff156B20 && this instanceof SnowLevel) return Tile.snowtree;
-		if (tiles[x + y * width] == 0xff156B20) return Tile.tree;
-		if (tiles[x + y * width] == 0xffFFFF00) return Tile.torch;
+		if ((x < 0 || x >= width || y < 0 || y >= height) && this instanceof ForestLevel)
+			return Tile.tree;
+		if (x < 0 || x >= width || y < 0 || y >= height)
+			return Tile.voidTile;
+		if (tiles[x + y * width] == 0xff156B20 && this instanceof SnowLevel)
+			return Tile.snowtree;
+		if (tiles[x + y * width] == 0xff156B20)
+			return Tile.tree;
+		if (tiles[x + y * width] == 0xffFFFF00)
+			return Tile.torch;
 		return Tile.voidTile;
 	}
 
 	public void updateTimer() {
 		timerString = timerm + ":" + timers;
-		if (timers == 0 && timerm != 0) timerString = timerm + ":" + 0 + "0";
-		if (timers < 10) timerString = timerm + ":" + "0" + timers;
+		if (timers == 0 && timerm != 0)
+			timerString = timerm + ":" + 0 + "0";
+		if (timers < 10)
+			timerString = timerm + ":" + "0" + timers;
 		if (timers <= 0 && timerm != 0) {
 			timers = 60;
 			timerm--;
@@ -224,8 +246,10 @@ public class Level {
 
 	public void renderTimer(Screen screen) {
 		int col = 0xffffff;
-		if (Game.level instanceof SnowLevel) col = 0;
-		if (play) screen.renderText(timerString, 450, 525, 30, 0, col);
+		if (Game.level instanceof SnowLevel)
+			col = 0;
+		if (play)
+			screen.renderText(timerString, 450, 525, 30, 0, col);
 
 	}
 

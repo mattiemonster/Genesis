@@ -49,12 +49,16 @@ public class Screen {
 			int yt = y + yp;
 			for (int x = 0; x < tile.sprite.size; x++) {
 				int xt = x + xp;
-				if (xt < -tile.sprite.size || xt >= width || yt < -tile.sprite.size || yt >= height) break;
-				if (xt < 0) xt = 0;
-				if (yt < 0) yt = 0;
+				if (xt < -tile.sprite.size || xt >= width || yt < -tile.sprite.size || yt >= height)
+					break;
+				if (xt < 0)
+					xt = 0;
+				if (yt < 0)
+					yt = 0;
 				int col = tile.sprite.pixels[x + y * tile.sprite.size];
 				if (col != 0xffff00ff && col != 0xff7f007f) {
-					if (!(tile instanceof TorchTile)) col = ChernoColor.changeBrightness(col, Level.brightness);
+					if (!(tile instanceof TorchTile))
+						col = ChernoColor.changeBrightness(col, Level.brightness);
 					pixels[xt + yt * width] = col;
 				}
 			}
@@ -68,9 +72,12 @@ public class Screen {
 			int yt = y + yp;
 			for (int x = 0; x < sprite.size; x++) {
 				int xt = x + xp;
-				if (xt < -sprite.size || xt >= width || yt < -sprite.size || yt >= height) break;
-				if (xt < 0) xt = 0;
-				if (yt < 0) yt = 0;
+				if (xt < -sprite.size || xt >= width || yt < -sprite.size || yt >= height)
+					break;
+				if (xt < 0)
+					xt = 0;
+				if (yt < 0)
+					yt = 0;
 				int col = sprite.pixels[x + y * sprite.size];
 				if (col != 0xffff00ff && col != 0xff7f007f) {
 					col = ChernoColor.changeBrightness(col, Level.brightness);
@@ -86,17 +93,23 @@ public class Screen {
 		for (int y = 0; y < 16; y++) {
 			int yt = y + yp;
 			int ys = y;
-			if (flip == 2 || flip == 3) ys = 15 - y;
+			if (flip == 2 || flip == 3)
+				ys = 15 - y;
 			for (int x = 0; x < 16; x++) {
 				int xt = x + xp;
 				int xs = x;
-				if (flip == 1 || flip == 3) xs = 15 - x;
-				if (xt < -15 || xt >= width || yt < -16 || yt >= height) break;
-				if (xt < 0) xt = 0;
-				if (yt < 0) yt = 0;
+				if (flip == 1 || flip == 3)
+					xs = 15 - x;
+				if (xt < -15 || xt >= width || yt < -16 || yt >= height)
+					break;
+				if (xt < 0)
+					xt = 0;
+				if (yt < 0)
+					yt = 0;
 				int col = mob.sprite.pixels[xs + ys * 16];
 				if (col != 0xffff00ff && col != 0xff7f007f) {
-					if (mob instanceof Female && ((Female) mob).canSpawnChild && col == 0xffBC2823) col = 0xff4ED35B;
+					if (mob instanceof Female && ((Female) mob).canSpawnChild && col == 0xffBC2823)
+						col = 0xff4ED35B;
 					if (col < 0) {
 						if (mob.lightDist < 0) {
 							col = ChernoColor.changeBrightness(col, Level.brightness);
@@ -120,11 +133,15 @@ public class Screen {
 			for (int x = 0; x < 16; x++) {
 				int xt = x + xp;
 				int xs = x;
-				if (xt < -15 || xt >= width || yt < -16 || yt >= height) break;
-				if (xt < 0) xt = 0;
-				if (yt < 0) yt = 0;
+				if (xt < -15 || xt >= width || yt < -16 || yt >= height)
+					break;
+				if (xt < 0)
+					xt = 0;
+				if (yt < 0)
+					yt = 0;
 				int col = tile.sprite.pixels[xs + ys * 16];
-				if (tile instanceof WaterTile) col = WaterTile.sprite.pixels[xs + ys * 16];
+				if (tile instanceof WaterTile)
+					col = WaterTile.sprite.pixels[xs + ys * 16];
 				if (col != 0xffff00ff) {
 					col = ChernoColor.tint(col, r * intensity, g * intensity, b * intensity);
 					pixels[xt + yt * width] = col;
