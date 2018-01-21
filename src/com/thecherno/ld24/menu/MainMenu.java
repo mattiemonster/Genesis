@@ -67,11 +67,8 @@ public class MainMenu extends Menu {
 		if (selected == 3) {
 			options[selected] = "> " + "Quit" + " <";
 			if (input.use) {
-//				Sound.menu.play(false);
-//				Game.menu = new AboutMenu(input);
-				
-				System.exit(0);
-				System.out.println("Quiting...");
+				Sound.menu.play(false);
+				Game.menu = new QuitMenu(input);
 			}
 		} else {
 			options[3] = "Quit ";

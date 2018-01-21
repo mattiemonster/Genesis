@@ -41,8 +41,6 @@ public class Game extends Canvas implements Runnable {
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 	private JFrame frame;
 	private int time = 0;
-	private Map map;
-
 	private Screen screen;
 	public static Menu menu;
 	public static Level level;
@@ -61,7 +59,7 @@ public class Game extends Canvas implements Runnable {
 		input = new InputHandler();
 		setMenuLevel();
 		menu = new MainMenu(input);
-		map = new Map();
+		new Map();
 		addKeyListener(input);
 		addFocusListener(input);
 	}
@@ -211,7 +209,7 @@ public class Game extends Canvas implements Runnable {
 		Game game = new Game();
 		game.frame = new JFrame();
 		game.frame.setResizable(false);
-		game.frame.setTitle(game.TITLE);
+		game.frame.setTitle(Game.TITLE);
 		game.frame.add(game);
 		game.frame.pack();
 		game.frame.setLocationRelativeTo(null);
