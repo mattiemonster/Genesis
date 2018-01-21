@@ -1,11 +1,8 @@
 package com.thecherno.ld24.menu;
 
 import com.thecherno.ld24.Game;
-import com.thecherno.ld24.entity.Population;
 import com.thecherno.ld24.graphics.Screen;
 import com.thecherno.ld24.input.InputHandler;
-import com.thecherno.ld24.level.Level;
-import com.thecherno.ld24.level.SnowLevel;
 import com.thecherno.ld24.sound.Sound;
 
 public class QuitMenu extends Menu {

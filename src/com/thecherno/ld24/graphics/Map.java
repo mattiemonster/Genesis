@@ -13,6 +13,8 @@ import com.thecherno.ld24.level.Level;
 
 public class Map extends Canvas {
 
+	private static final long serialVersionUID = 1L;
+	
 	int width = 128;
 	int height = 128;
 	int scale = 2;
